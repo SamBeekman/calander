@@ -38,32 +38,40 @@ $('#currentDay').text('Today is: ' + dayjs().format('dddd'));
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
 const timeblockArray = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'), $('#hour-13'), $('#hour-14'), $('#hour-15'), $('#hour-16'), $('#hour-17')];
-for (let i = 0; i < 8; i++) {
-  let timeBlockID = timeblockArray[i];
+for (let i = 0; i < 9; i++) {
+
   let curentTime = dayjs().format('H');
-  let timeCheck = dayjs().format('H');
 
 
-  if (curentTime.isBefore(timeCheck)) {
-    timeBlockID.addClass('past');
-  } else if (curentTime.isSame(timeCheck)) {
-    timeBlockID.addClass('present');
-  } else {
-    timeBlockID.addClass('future');
+  for (let j = 9; j < 17; j++) {
+    let timeCheck = dayjs().hour(j);
+
+
+    if (dayjs(curentTime).isBefore(timeCheck)) {
+      timeblockArray[i].addClass('past');
+    } else if (dayjs(curentTime).isSame(timeCheck)) {
+      timeblockArray[i].addClass('present');
+    } else {
+      timeblockArray[i].addClass('future');
+    };
   };
 };
 
 
 //need a way to give dayjs() to each div ..... do as object?
-let hour09 = dayjs('09').format('H');
-let hour10 = dayjs('10').format('H');
-let hour11 = dayjs('11').format('H');
-let hour12 = dayjs('12').format('H');
-let hour13 = dayjs('13').format('H');
-let hour14 = dayjs('14').format('H');
-let hour15 = dayjs('15').format('H');
-let hour16 = dayjs('16').format('H');
-let hour17 = dayjs('17').format('H');
+// let hour09 = dayjs('09').format('H');
+// let hour10 = dayjs('10').format('H');
+// let hour11 = dayjs('11').format('H');
+// let hour12 = dayjs('12').format('H');
+// let hour13 = dayjs('13').format('H');
+// let hour14 = dayjs('14').format('H');
+// let hour15 = dayjs('15').format('H');
+// let hour16 = dayjs('16').format('H');
+// let hour17 = dayjs('17').format('H');
+// console.log(hour15);
+
+
+
 
 
 
