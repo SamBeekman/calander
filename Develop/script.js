@@ -32,10 +32,13 @@ $('#currentDay').text('Today is: ' + dayjs().format('dddd'));
 
 // WHEN I scroll down
 // THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
+// did in HTML
 
 
 // WHEN I view the timeblocks for that day
 // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
+//issue: sets all to 'future'
 
 const timeblockArray = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'), $('#hour-13'), $('#hour-14'), $('#hour-15'), $('#hour-16'), $('#hour-17')];
 for (let i = 0; i < 9; i++) {
@@ -58,33 +61,36 @@ for (let i = 0; i < 9; i++) {
 };
 
 
-//need a way to give dayjs() to each div ..... do as object?
-// let hour09 = dayjs('09').format('H');
-// let hour10 = dayjs('10').format('H');
-// let hour11 = dayjs('11').format('H');
-// let hour12 = dayjs('12').format('H');
-// let hour13 = dayjs('13').format('H');
-// let hour14 = dayjs('14').format('H');
-// let hour15 = dayjs('15').format('H');
-// let hour16 = dayjs('16').format('H');
-// let hour17 = dayjs('17').format('H');
-// console.log(hour15);
-
-
-
-
-
-
 
 
 
 // WHEN I click into a timeblock
 // THEN I can enter an event
+//can do already
 
 
 // WHEN I click the save button for that timeblock
 // THEN the text for that event is saved in local storage
+$('.btn').on('click', function (event) {
+  let userInput = $(event.target).prev().val();
+  let userID = $(event.target).parent().attr('id');
+  localStorage.setItem(userID, userInput);
+});
 
 
 // WHEN I refresh the page
 // THEN the saved events persist
+$('#hour-9').children().eq(1).text(localStorage.getItem('hour-9'));
+$('#hour-10').children().eq(1).text(localStorage.getItem('hour-10'));
+$('#hour-11').children().eq(1).text(localStorage.getItem('hour-11'));
+$('#hour-12').children().eq(1).text(localStorage.getItem('hour-12'));
+$('#hour-13').children().eq(1).text(localStorage.getItem('hour-13'));
+$('#hour-14').children().eq(1).text(localStorage.getItem('hour-14'));
+$('#hour-15').children().eq(1).text(localStorage.getItem('hour-15'));
+$('#hour-16').children().eq(1).text(localStorage.getItem('hour-16'));
+$('#hour-17').children().eq(1).text(localStorage.getItem('hour-17'));
+
+//rewrite as a loop
+// for (let k = 9; k < 17; k++) {
+//     $('#hour-$[k]').children().eq(1).text(localStorage.getItem('user-input-hour-$[k]'));
+// }
