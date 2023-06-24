@@ -21,3 +21,62 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+
+// GIVEN I am using a daily planner to create a schedule
+// WHEN I open the planner
+// THEN the current day is displayed at the top of the calendar
+
+$('#currentDay').text('Today is: ' + dayjs().format('dddd'));
+
+
+// WHEN I scroll down
+// THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
+
+
+// WHEN I view the timeblocks for that day
+// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
+const timeblockArray = [$('#hour-9'), $('#hour-10'), $('#hour-11'), $('#hour-12'), $('#hour-13'), $('#hour-14'), $('#hour-15'), $('#hour-16'), $('#hour-17')];
+for (let i = 0; i < 8; i++) {
+  let timeBlockID = timeblockArray[i];
+  let curentTime = dayjs().format('H');
+  let timeCheck = dayjs().format('H');
+
+
+  if (curentTime.isBefore(timeCheck)) {
+    timeBlockID.addClass('past');
+  } else if (curentTime.isSame(timeCheck)) {
+    timeBlockID.addClass('present');
+  } else {
+    timeBlockID.addClass('future');
+  };
+};
+
+
+//need a way to give dayjs() to each div ..... do as object?
+let hour09 = dayjs('09').format('H');
+let hour10 = dayjs('10').format('H');
+let hour11 = dayjs('11').format('H');
+let hour12 = dayjs('12').format('H');
+let hour13 = dayjs('13').format('H');
+let hour14 = dayjs('14').format('H');
+let hour15 = dayjs('15').format('H');
+let hour16 = dayjs('16').format('H');
+let hour17 = dayjs('17').format('H');
+
+
+
+
+
+
+// WHEN I click into a timeblock
+// THEN I can enter an event
+
+
+// WHEN I click the save button for that timeblock
+// THEN the text for that event is saved in local storage
+
+
+// WHEN I refresh the page
+// THEN the saved events persist
