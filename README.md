@@ -46,6 +46,6 @@ To use the calander, click on a timeblock to enter any events/tasks you have for
 If you wish to save these events to the calander, click the save button to the right of that particular timeblock.
 
 Color code:
-Past - Gray
-Present- Red
-Future - Green
+- Past: Gray
+- Present: Red
+- Future: Green
