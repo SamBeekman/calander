@@ -3,8 +3,7 @@
 ## Task
 
 This is the week 5 challenge where we were tasked with creating a simple calendar application that allows a user to save events for each hour of a typical working day (9am-5pm). 
-This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery as well as utilises Day.js API for time/date manipulation.
-The following is the User Story and Acceptance Criteria for the project.
+This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery as well as utilising Day.js API for time/date manipulation.
 
 ## User Story
 
